@@ -27,7 +27,7 @@ namespace RBAC_API.Services
             var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? throw new InvalidOperationException("JWT_ISSUER not set.");
             var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? throw new InvalidOperationException("JWT_AUDIENCE not set.");
 
-            return JwtHelper.GenerateJwtToken(user.Username, string.Join(",", user.Roles.Select(r => r.Name)), jwtSecret, jwtIssuer, jwtAudience);
+            return JwtHelper.GenerateJwtToken(user.Username, string.Join(",", user.Role), jwtSecret, jwtIssuer, jwtAudience);
         }
 
         public User Register(string username, string password, UserRole role)
