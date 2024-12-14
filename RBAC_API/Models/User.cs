@@ -7,5 +7,6 @@
         public string PasswordHash { get; set; }
         public UserRole Role { get; set; }
         public UserStatus Status { get; set; } = UserStatus.Active;
+        public List<Role> Roles { get; set; } = new List<Role>();
     }
 }
