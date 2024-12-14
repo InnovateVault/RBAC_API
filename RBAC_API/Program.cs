@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using RBAC_API.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite("Data Source=rbac.db"));
+
 
 
 var app = builder.Build();
